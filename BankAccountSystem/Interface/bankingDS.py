@@ -31,21 +31,39 @@ def addAccount(n, aN, iA, B):
             new_file.close()
             
 # Read (e.g. for validation)
+class Error(Exception):
+    pass
+class UserNameTypoError(Error):
+    """Raised when user type wrong account number"""
+    pass
+class AccountNumberTypoError(Error):
+    """Raised when user type wrong account number"""
+    pass
+
+
 def validate(n, aN):
     all_accounts = os.listdir()
-    if n in all_accounts:
-        try:
-            file = open(n, "r")
-            file_data = file.read()
-            file_data = file_data.split('\n')
-            accountNum = file_data[1]
-            assert str(aN) == accountNum
-            print("Validation Pass!")
-            return True
-        except:
-            print("Please check your account number!")
-            return "Please check your account number!"
-    else:
+    try:
+        if n not in all_accounts:
+            raise UserNameTypoError
+        else:
+            try:
+                file = open(n, "r")
+                file_data = file.read()
+                file_data = file_data.split('\n')
+                accountNum = file_data[1]
+                
+                if str(aN) != accountNum:
+                    raise AccountNumberTypoError
+                else:
+                    print("Validation Pass!")
+                    return True
+            except AccountNumberTypoError:
+                print("AccountNumberTypoError")
+                print("Please check your account number!")
+                return "Please check your account number!"
+    except UserNameTypoError:
+        print("UserNameTypoError")
         print("Please check your spell of name!")
         return "Please check your spell of name!"
     return "Validation Pass!"

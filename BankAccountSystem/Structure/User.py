@@ -2,6 +2,14 @@ import random
 from BankAccountSystem.Structure import calculation as cal
 from BankAccountSystem.Interface import bankingDS as ds
 
+# add try_except
+class Error(Exception):
+    pass
+class AccountValueTooLowError(Error):
+    """Raised when user want to withdraw money over account balance"""
+    pass
+
+
 # generate account number
 available_acc_num = [i for i in range(10000,99999)]
 def genAccNum():
@@ -27,10 +35,13 @@ class newUser(User):
         print(f'Open Date: {date}')
         print(f'Account Balance: {self.balance}')
         return 'information printed'
-        
+    
+    # add try_except
     def store(self):
-        ds.addAccount(self.name, self.acc_num, self.init_dps, self.balance)
-        return 'successfully stored'
+        try:
+            ds.addAccount(self.name, self.acc_num, self.init_dps, self.balance)
+        except:
+            print("Account already exists")
 
 class eUser(User):
     def __init__(self, name, acc_num, balance):
@@ -42,17 +53,22 @@ class eUser(User):
         print(f"You successfully deposit {amount} on {date}")
         print(f'Your account balance is now: {self.balance}')
         return self.balance
-        
+
+
+    
     def withdraw(self, amount, date):
-        amount = cal.service(amount)
-        if amount > self.balance:
+        try: 
+            amount = cal.service(amount)
+            if amount > self.balance:
+                raise AccountValueTooLowError
+            else:
+                self.balance = self.balance - amount
+                print(f'You withdraw {amount} on {date}')
+                print(f'Your account balance is {self.balance}')
+                return self.balance
+        except AccountValueTooLowError:
             print("You cannot withdraw the amount over your balance after service fee")
             print(f'Your account balance is {self.balance}, Service fee is CAD 3')
-        else:
-            self.balance = self.balance - amount
-            print(f'You withdraw {amount} on {date}')
-            print(f'Your account balance is {self.balance}')
-            return self.balance
     
     def information(self, date):         
         return f"Here is your account information \nName: {self.name}\nAccount Number: {self.acc_num}\nDate: {date}\nAccount Balance: {self.balance}"  
