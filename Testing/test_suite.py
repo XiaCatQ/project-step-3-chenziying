@@ -1,7 +1,7 @@
 import unittest
-from Testing.test_Structure import test_User, test_calculation
-from Testing.test_bankingUI import TestbankingUI
-from Testing.test_bankingDS import TestbankingDS
+from test_structure import test_User, test_calculation
+from test_bankingUI import TestbankingUI
+from test_bankingDS import TestbankingDS
 
 
 def my_suite():

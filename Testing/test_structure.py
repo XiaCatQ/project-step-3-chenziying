@@ -1,8 +1,6 @@
 import unittest 
-import sys
-sys.path.append('C:\\Users\\sophiechen\\2022MDS\\Block 3\\Data-533\\project\\step2\\DATA533-testing\\')
-from BankAccountSystem.Structure import User as U
-from BankAccountSystem.Structure import calculation as cal
+import User as U
+import calculation as cal
 
 class test_User(unittest.TestCase): # test class 
 

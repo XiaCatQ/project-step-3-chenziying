@@ -1,8 +1,8 @@
 import unittest  # Jupyter notebook
 
 
-from BankAccountSystem.Interface import bankingDS as ds
-import BankAccountSystem.Interface.bankingUI as bankingUI
+import bankingDS as ds
+import bankingUI
 
 
 

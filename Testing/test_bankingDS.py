@@ -1,7 +1,7 @@
 import unittest  # Jupyter notebook
 
 
-from BankAccountSystem.Interface import bankingDS
+import bankingDS
 import os
 
 class TestbankingDS(unittest.TestCase): # test class
