@@ -12,6 +12,12 @@ if os.environ.get('DISPLAY','') == '':
     mpl.use('Agg')
 import matplotlib.pyplot as plt
 
+class Error(Exception):
+    pass
+class WrongCurrencyError(Error):
+    """Raised when user type in currency other than CAD and TWD"""
+    pass
+
     
 master = Tk()
 master.title("MDS Banking")
@@ -208,6 +214,12 @@ def finish_withdraw():
     file.close() 
     
     E = U.eUser(details_name, details_accNum, int(details_balance))
+    try:
+        if temp_w_currency.get() != "TWD" & temp_w_currency.get() != "CAD":
+            raise WrongCurrencyError
+    except:
+        print("WrongCurrencyError")
+        
     if temp_w_currency.get() == "TWD":
         print(Cal.getEXRates())
         WM = E.withdraw(round(int(temp_w_amount.get()) / Cal.getEXRates(),0), temp_w_date)
