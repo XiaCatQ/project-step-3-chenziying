@@ -15,4 +15,3 @@ script:
   - python test_User.py
   - python test_calculation.py
   - python test_bankingDS.py
-  - python test_bankingUI.py
