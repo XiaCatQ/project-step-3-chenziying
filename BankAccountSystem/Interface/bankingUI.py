@@ -6,6 +6,11 @@ from BankAccountSystem.Structure import User as U
 from BankAccountSystem.Structure import calculation as Cal
 from tkinter import *
 
+import matplotlib as mpl
+if os.environ.get('DISPLAY','') == '':
+    print('no display found. Using non-interactive Agg backend')
+    mpl.use('Agg')
+import matplotlib.pyplot as plt
 
     
 master = Tk()
