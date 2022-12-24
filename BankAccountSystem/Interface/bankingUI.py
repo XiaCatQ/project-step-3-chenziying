@@ -1,4 +1,6 @@
 # import 
+import matplotlib
+matplotlib.use('Agg')
 from tkinter import *
 import os
 from BankAccountSystem.Interface import bankingDS as ds
