@@ -1,6 +1,10 @@
 language: python
 python:
   - 3.9
+  
+services:
+  - xvfb
+
 before_install:
   - python --version
   - pip install -U pip
@@ -12,7 +16,4 @@ before_install:
   - pip install matplotlib
 
 script:
-  - python test_User.py
-  - python test_calculation.py
-  - python test_bankingDS.py
-  - python test_bankingUI.py
+  - python test_suite.py
