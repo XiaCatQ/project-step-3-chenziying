@@ -26,5 +26,7 @@ class test_User(unittest.TestCase): # test class
         self.assertIsInstance(self.newuser2 , U.newUser)
         self.assertIsInstance(self.newuser3 , U.newUser)
         self.assertIsInstance(self.newuser4 , U.newUser)
+    
 
+    
 unittest.main(argv=[''], verbosity=2, exit=False)

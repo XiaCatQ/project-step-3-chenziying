@@ -26,9 +26,11 @@ class newUser(User):
         print(f'Account Number: {self.acc_num}')
         print(f'Open Date: {date}')
         print(f'Account Balance: {self.balance}')
+        return 'information printed'
         
     def store(self):
         ds.addAccount(self.name, self.acc_num, self.init_dps, self.balance)
+        return 'successfully stored'
 
 class eUser(User):
     def __init__(self, name, acc_num, balance):
