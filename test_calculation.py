@@ -3,19 +3,6 @@ from BankAccountSystem.Structure import User as U
 from BankAccountSystem.Structure import calculation as cal
 
 class test_calculation(unittest.TestCase): # test class
-    def setUp(self):
-        print('Set up')
-
-    def tearDown(self):
-        print('Tear Down')
-
-    @classmethod
-    def setUpClass(cls):
-        print('SetupClass')
-
-    @classmethod
-    def tearDownClass(cls):
-        print('TearDownClass')
 
     def test_interest(self):
         self.assertEqual(round(cal.interest(1), 5), 0.0001)

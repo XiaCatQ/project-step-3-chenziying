@@ -4,7 +4,7 @@ import unittest  # Jupyter notebook
 from BankAccountSystem.Interface import bankingDS
 import os
 
-class TestbankingDS(unittest.TestCase): # test class
+class test_bankingDS(unittest.TestCase): # test class
     def setUp(self):
         print('Set up')
 
