@@ -4,8 +4,13 @@ import os
 from BankAccountSystem.Interface import bankingDS as ds
 from BankAccountSystem.Structure import User as U
 from BankAccountSystem.Structure import calculation as Cal
-
 from tkinter import *
+
+if os.environ.get('DISPLAY','') == '':
+    print('no display found. Using :0.0')
+    os.environ.__setitem__('DISPLAY', ':0.0')
+
+
     
 master = Tk()
 master.title("MDS Banking")
