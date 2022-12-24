@@ -12,4 +12,4 @@ before_install:
   - pip install pandas
 
 script:
-  - python TestModule1.py
+  - python test_structure.py
