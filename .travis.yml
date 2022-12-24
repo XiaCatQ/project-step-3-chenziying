@@ -12,4 +12,7 @@ before_install:
   - pip install pandas
 
 script:
-  - python test_structure.py
+  - python test_User.py
+  - python test_calculation.py
+  - python test_bankingDS.py
+  - python test_bankingUI.py
