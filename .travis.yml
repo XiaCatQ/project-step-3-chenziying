@@ -9,6 +9,7 @@ before_install:
   - pip install numpy
   - pip install pandas
   - pip install html5lib
+  - pip install matplotlib
 
 script:
   - python test_User.py
