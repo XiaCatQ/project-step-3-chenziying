@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='BankAccountSystem',
+    name='BankAccountSystem_XiaCatQ',
     version='1.0',
     packages=['BankAccountSystem'],
     license='MIT',
