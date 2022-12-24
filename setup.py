@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='BankAccountSystem',
-    version='2.0',
+    version='1.0',
     packages=['BankAccountSystem'],
     license='MIT',
     description='A system to simulate bank GUI python package',
